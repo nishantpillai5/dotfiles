@@ -1,0 +1,10 @@
+# Directory navigation
+alias lf='ls -a | grep'
+alias lt='ls -ltr'
+alias cu='cd ..'
+alias cp='cp -i'
+alias mv='mv -i'
+
+# Vim
+alias vim='nvim'
+alias vi='nvim'
