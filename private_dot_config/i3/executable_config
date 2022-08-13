@@ -39,16 +39,7 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 # and nm-applet is a desktop environment-independent system tray GUI for it.
 exec --no-startup-id nm-applet
 
-# Use pactl to adjust volume in PulseAudio.
-# set $refresh_i3status killall -SIGUSR1 i3status
-# bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
-# bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_i3status
-# bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
-# bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
 
-# Use to adjust brightness
-# bindsym XF86MonBrightnessUp exec xbacklight + 10
-# bindsym XF86MonBrightnessDown exec xbacklight - 10
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -246,7 +237,6 @@ assign [class="Code" instance="code"] → $ws1
 # Startup apps
 # exec --no-startup-id dropbox start
 
-
 # Colors
 # get color from XResource config, `~/.Xresources`
 # variable_name XResource fallback
@@ -289,27 +279,6 @@ assign [class="Code" instance="code"] → $ws1
 # set_from_resource $white1 color7 #4E4E4E
 # set_from_resource $white2 color15 #ffffff
 
-
-# Start i3bar to display a workspace bar (plus the system information i3status
-# finds out, if available)
-bar {
-	status_command i3status
-#	status_command i3status --config ~/.i3/i3status.conf
-	# Disable all tray icons
-#	tray_output none
-#	colors {
-#		background $black2
-#		statusline $white2
-#		separator $white2 
-#		#                  border background text
-#		focused_workspace  $background $background $red1
-#		active_workspace   $black2 $black1 $white2
-#		inactive_workspace $black1 $black2 $foreground
-#		urgent_workspace   $red1 $red1 $white2
-#		binding_mode       $background $red2 $white2
-#	}
-}
-
 # Multi-monitor Config
 
 set $mode_display Config monitor resolution - My first config (d) - My second config (t)
@@ -329,41 +298,39 @@ bindsym $mod+period mode "$mode_display"
 bindsym $mod+p move workspace to output next
 # Review the lines below and append to ~/.config/i3/config
 
-## Volume control
+## volume and backlight control
 
-# Path to volume control, without trailing slash
-set $volumepath ~/.config/i3/scripts/i3-volume
+# Use pactl to adjust volume in PulseAudio.
+# set $refresh_i3status killall -SIGUSR1 i3status
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5% && $refresh_i3status
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5% && $refresh_i3status
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
+bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
 
-# Command for the status line
-#   ie: i3blocks, i3status
-set $statuscmd i3status
-
-# Signal used to update the status line
-#   i3blocks uses SIGRTMIN+10 by default
-#   i3status uses SIGUSR1 by default
-set $statussig SIGUSR1
-
-# Amount to increase/decrease volume as a percentage
-set $volumestep 5
-
-# pulseaudio-utils settings
-#
-# Symbolic name for sink (numeric index not supported)
-#   Recommended: comment out this setting and omit the -s option to use default sink
-#   List sink names: pacmd list-sinks | awk -F "[<>]" '/^\s+name: <.*>/{print $2}'
-#set $sinkname alsa_output.pci-0000_00_1b.0.analog-stereo
-
-# Using pulseaudio-utils (append "-s $sinkname" without quotes to override default sink)
-#bindsym XF86AudioRaiseVolume exec --no-startup-id $volumepath/volume -n -t $statuscmd -u $statussig up $volumestep
-#bindsym XF86AudioLowerVolume exec --no-startup-id $volumepath/volume -n -t $statuscmd -u $statussig down $volumestep
-#bindsym XF86AudioMute        exec --no-startup-id $volumepath/volume -n -t $statuscmd -u $statussig mute
+# Use to adjust brightness
+bindsym XF86MonBrightnessUp exec xbacklight + 10
+bindsym XF86MonBrightnessDown exec xbacklight - 10
 
 
-bindsym XF86AudioRaiseVolume exec --no-startup-id $volumepath/volume -np up $volumestep
-bindsym XF86AudioLowerVolume exec --no-startup-id $volumepath/volume -np down $volumestep
-bindsym XF86AudioMute        exec --no-startup-id $volumepath/volume -np mute
+# Polybar
+exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
-set $backlightpath ~/.config/i3/scripts/i3-backlight/backlight
-
-bindsym XF86MonBrightnessDown   exec $backlightpath -np -d $volumestep -y
-bindsym XF86MonBrightnessUp     exec $backlightpath -np -i $volumestep -y
+# Start i3bar to display a workspace bar (plus the system information i3status
+# finds out, if available)
+# bar {
+#	status_command i3status
+#	status_command i3status --config ~/.i3/i3status.conf
+	# Disable all tray icons
+#	tray_output none
+#	colors {
+#		background $black2
+#		statusline $white2
+#		separator $white2 
+#		#                  border background text
+#		focused_workspace  $background $background $red1
+#		active_workspace   $black2 $black1 $white2
+#		inactive_workspace $black1 $black2 $foreground
+#		urgent_workspace   $red1 $red1 $white2
+#		binding_mode       $background $red2 $white2
+#	}
+#}
