@@ -15,6 +15,7 @@
 # Add brightness and volume level in status bar
 
 set $mod Mod4
+set $alt Mod1
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
@@ -38,8 +39,6 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 # NetworkManager is the most popular way to manage wireless networks on Linux,
 # and nm-applet is a desktop environment-independent system tray GUI for it.
 exec --no-startup-id nm-applet
-
-
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -125,10 +124,8 @@ set $ws10 "10"
 # cycle through workspace
 bindsym $mod+Tab workspace back_and_forth
 bindsym $mod+Shift+Tab workspace next 
-
-# Mod + Alt + JK
-bindsym $mod+Mod1+l workspace next 
-bindsym $mod+Mod1+h workspace prev 
+bindsym $mod+$alt+j workspace next 
+bindsym $mod+$alt+k workspace prev 
 
 # switch to workspace
 bindsym $mod+1 workspace number $ws1
@@ -280,7 +277,7 @@ assign [class="Code" instance="code"] → $ws1
 # set_from_resource $white2 color15 #ffffff
 
 # Multi-monitor Config
-
+# Load from .screenlayouts
 set $mode_display Config monitor resolution - My first config (d) - My second config (t)
 
 mode "$mode_display" {
@@ -294,8 +291,12 @@ mode "$mode_display" {
 
 bindsym $mod+period mode "$mode_display"
 
-# Moving workspaces between screens 
-bindsym $mod+p move workspace to output next
+# Multi-monitor navigation 
+bindsym $mod+$alt+l focus output right
+bindsym $mod+$alt+h focus output left
+bindsym $mod+$alt+Shift+l move workspace to output right
+bindsym $mod+$alt+Shift+h move workspace to output left
+
 # Review the lines below and append to ~/.config/i3/config
 
 ## volume and backlight control
