@@ -1,0 +1,3 @@
+[diff]
+    pager = "diff-so-fancy"
+	exclude = ["scripts"]

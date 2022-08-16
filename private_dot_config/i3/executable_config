@@ -277,7 +277,7 @@ assign [class="Code" instance="code"] → $ws1
 # set_from_resource $white2 color15 #ffffff
 
 # Multi-monitor Config
-# Load from .screenlayouts
+# TODO: Load from .screenlayouts, relaunch polybar, set wallpaper
 set $mode_display Config monitor resolution - My first config (d) - My second config (t)
 
 mode "$mode_display" {
