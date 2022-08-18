@@ -25,6 +25,14 @@ inoremap jk <Esc>
 vnoremap <M-y> "+y
 vnoremap <M-p> "+p
 
+" Buffers management
+nnoremap <C-s> :w<cr>
+nnoremap <leader>x <cmd>q<cr> 
+" Close others
+nnoremap <leader>qw <cmd>%bd<bar>e#<bar>bd#<cr> 
+" Close current
+nnoremap <leader>qq <cmd>bp<bar>sp<bar>bn<bar>bd<cr>
+
 " Remap arrow keys to resize window
 nnoremap <silent> <C-Right> :vertical resize +2<CR>
 nnoremap <silent> <C-Left>  :vertical resize -2<CR>
@@ -75,9 +83,27 @@ Plug 'preservim/vim-markdown', { 'for': 'markdown' }
 " Syntax highlighting
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
-" Linting
+" Formatting and Linting
+Plug 'dense-analysis/ale'
 
 call plug#end()
+
+" Ale Config
+let g:ale_linters = {
+\   'python': ['flake8']
+\}
+
+let g:ale_fixers = {
+\   'markdown': ['prettier'],
+\   'python': ['black','isort']
+\}
+
+let g:ale_fix_on_save = 1
+let g:ale_completion_enabled = 1
+let g:ale_sign_error = '●'
+let g:ale_sign_warning = '.'
+let g:ale_python_flake8_options = '--max-line-length=200'
+set omnifunc=ale#completion#OmniFunc
 
 " Markdown
 let g:vim_markdown_folding_disabled = 1
@@ -87,6 +113,7 @@ let g:vim_markdown_math = 1
 let g:vim_markdown_new_list_item_indent = 2
 
 " Airline
+let g:airline#extensions#ale#enabled = 1
 let g:airline#extensions#tabline#enabled = 1
 " let g:airline#extensions#tabline#buffer_nr_show = 1
 let g:airline#extensions#tabline#show_tab_nr = 1
@@ -121,10 +148,11 @@ nmap <leader>0 <Plug>AirlineSelectTab0
 " nmap <leader>8 :8buffer<CR>
 " nmap <leader>9 :9buffer<CR>
 " nmap <leader>0 :10buffer<CR>
-nmap <leader>j :bnext<CR>
-nmap <leader>k :bprev<CR>
+nmap <leader>k :bnext<CR>
+nmap <leader>j :bprev<CR>
 nmap <leader>l :tabnext<CR>
 nmap <leader>h :tabprev<CR>
+nmap <leader>; :b#<CR>
 
 " nnoremap <M-1> :1tabnext<CR>
 " nnoremap <M-2> :2tabnext<CR>
