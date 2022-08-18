@@ -5,6 +5,8 @@ set tabstop=4
 set shiftwidth=4
 set ignorecase
 
+set mouse=a
+
 set nocompatible
 set hidden
 set encoding=utf-8
@@ -12,6 +14,8 @@ set encoding=utf-8
 " Search
 set noincsearch
 set nohlsearch
+" nnoremap <C-_> :CommentPlugin<cr>
+" nnoremap <M-/> :noh<cr>
 
 " Leader
 let mapleader = " "
