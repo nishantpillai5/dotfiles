@@ -4,12 +4,15 @@ set relativenumber
 set tabstop=4
 set shiftwidth=4
 set ignorecase
-
+set termguicolors
 set mouse=a
 
 set nocompatible
 set hidden
 set encoding=utf-8
+
+" Disable comment new line (Doesn't work)
+" set formatoptions-=ro
 
 " Search
 set noincsearch
@@ -63,7 +66,6 @@ Plug 'christoomey/vim-tmux-navigator'
 
 " Status bar
 Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
 
 " Fuzzy finder
 Plug 'nvim-lua/plenary.nvim'
@@ -90,7 +92,13 @@ Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 " Formatting and Linting
 Plug 'dense-analysis/ale'
 
+" Colorscheme
+Plug 'bluz71/vim-moonfly-colors'
+
 call plug#end()
+
+" Colorscheme
+colorscheme moonfly
 
 " Ale Config
 let g:ale_linters = {
@@ -125,9 +133,6 @@ let g:airline#extensions#tabline#show_tab_type = 1
 " let g:airline#extensions#tabline#tabs_label = 't'
 " let g:airline#extensions#tabline#buffers_label = 'b'
 
-let g:airline_theme='deus'
-" let g:airline_powerline_fonts = 1
-
 let g:airline#extensions#tabline#buffer_idx_mode = 1
 nmap <leader>1 <Plug>AirlineSelectTab1
 nmap <leader>2 <Plug>AirlineSelectTab2
@@ -158,20 +163,3 @@ nmap <leader>l :tabnext<CR>
 nmap <leader>h :tabprev<CR>
 nmap <leader>; :b#<CR>
 
-" nnoremap <M-1> :1tabnext<CR>
-" nnoremap <M-2> :2tabnext<CR>
-" nnoremap <M-3> :3tabnext<CR>
-" nnoremap <M-4> :4tabnext<CR>
-" nnoremap <M-5> :5tabnext<CR>
-" nnoremap <M-6> :6tabnext<CR>
-" nnoremap <M-7> :7tabnext<CR>
-" nnoremap <M-8> :8tabnext<CR>
-" nnoremap <M-9> :9tabnext<CR>
-" nnoremap <M-0> :10tabnext<CR>
-
-" Tabs
-" let g:airline#extensions#ctrlspace#enabled = 1
-" let g:CtrlSpaceStatuslineFunction = "airline#extensions#ctrlspace#statusline()"
-" let g:CtrlSpaceDefaultMappingKey = "<C-space> "
-" let g:airline#extensions#tabline#buffer_nr_show = 0
-" let g:airline#extensions#tabline#ctrlspace_show_tab_nr = 1

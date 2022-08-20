@@ -116,10 +116,10 @@ if ! shopt -oq posix; then
   fi
 fi
 
-# Different history for Tmux panes
-if [[ $TMUX_PANE ]]; then
-  HISTFILE=$HOME/.bash_history_tmux_${TMUX_PANE:1}
-fi
+# Different history for Tmux panes (doesn't work)
+# if [[ $TMUX_PANE ]]; then
+#    HISTFILE=$HOME/.bash_history_tmux_${TMUX_PANE:1}
+# fi
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
