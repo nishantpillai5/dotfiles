@@ -1,10 +1,36 @@
 # Directory navigation
+# alias .='clear '
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
+alias .....='cd ../../../..'
+alias ......='cd ../../../../..'
+alias -- -='cd -'
+
+alias l='ls'
+alias ll='ls -al'
+alias lh='ls -Alh'
 alias lf='ls -a | grep'
 alias lt='ls -ltr'
-alias cu='cd ..'
+
+alias p="pushd"
+alias pd="popd"
+
+# Files
 alias cp='cp -i'
 alias mv='mv -i'
+alias open='gio open'
+alias mkdir='mkdir -p'
+
+# Terminal
+alias h='history'
+alias hg='history | grep'
+alias ping='ping -c 5'
 
 # Vim
 alias vim='nvim'
 alias vi='nvim'
+
+# Date
+alias today='date +"%Y.%m.%d"'
+alias nt='vi journal.daily.`today`.md'
