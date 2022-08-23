@@ -9,8 +9,7 @@ set mouse=a
 
 set nocompatible
 set hidden
-set encoding=utf-8
-
+set encoding=UTF-8
 " Disable comment new line (Doesn't work)
 " set formatoptions-=ro
 
@@ -72,7 +71,9 @@ Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.0' }
 
 " File tree
-Plug 'preservim/nerdtree'
+Plug 'preservim/nerdtree' |
+            \ Plug 'Xuyuanp/nerdtree-git-plugin' |
+            \ Plug 'ryanoasis/vim-devicons'
 
 " Sessions
 Plug 'tpope/vim-obsession'
@@ -95,7 +96,23 @@ Plug 'dense-analysis/ale'
 " Colorscheme
 Plug 'bluz71/vim-moonfly-colors'
 
+" Git
+Plug 'vim-scripts/vim-gitgutter'
+
 call plug#end()
+
+" Nerd tree
+" Start NERDTree, unless a file or session is specified, eg. vim -S session_file.vim.
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists('s:std_in') && v:this_session == '' | NERDTree | endif
+" Close the tab if NERDTree is the only window remaining in it.
+autocmd BufEnter * if winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
+" If another buffer tries to replace NERDTree, put it in the other window, and bring back NERDTree.
+autocmd BufEnter * if bufname('#') =~ 'NERD_tree_\d\+' && bufname('%') !~ 'NERD_tree_\d\+' && winnr('$') > 1 |
+    \ let buf=bufnr() | buffer# | execute "normal! \<C-W>w" | execute 'buffer'.buf | endif
+
+" Nerdfont git plugin
+let g:NERDTreeGitStatusUseNerdFonts = 1
 
 " Colorscheme
 colorscheme moonfly
@@ -107,7 +124,7 @@ let g:ale_linters = {
 
 let g:ale_fixers = {
 \   'markdown': ['prettier'],
-\   'python': ['black','isort']
+\   'python': ['isort','black']
 \}
 
 let g:ale_fix_on_save = 1
@@ -132,6 +149,7 @@ let g:airline#extensions#tabline#show_tab_nr = 1
 let g:airline#extensions#tabline#show_tab_type = 1
 " let g:airline#extensions#tabline#tabs_label = 't'
 " let g:airline#extensions#tabline#buffers_label = 'b'
+let g:airline_powerline_fonts = 1
 
 let g:airline#extensions#tabline#buffer_idx_mode = 1
 nmap <leader>1 <Plug>AirlineSelectTab1
