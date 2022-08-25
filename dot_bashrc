@@ -139,3 +139,11 @@ unset __conda_setup
 export EDITOR=nvim
 set -o vi
 bind '"jk":vi-movement-mode'
+
+function _update_ps1() {
+    PS1=$(powerline-shell $?)
+}
+
+if [[ $TERM != linux && ! $PROMPT_COMMAND =~ _update_ps1 ]]; then
+    PROMPT_COMMAND="_update_ps1; $PROMPT_COMMAND"
+fi
