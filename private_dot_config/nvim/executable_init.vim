@@ -7,11 +7,33 @@ set ignorecase
 set termguicolors
 set mouse=a
 
+"set cc=80 " Column border
+set wildmode=longest,list " Bash like completion
+set splitright
+set splitbelow
+
 set nocompatible
 set hidden
 set encoding=UTF-8
 " Disable comment new line (Doesn't work)
 " set formatoptions-=ro
+
+" Vim jump to the last position when reopening a file
+if has("autocmd")
+  au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
+    \| exe "normal! g'\"" | endif
+endif
+
+" open file in a text by placing text and gf
+" nnoremap gf :vert winc f<cr>
+" copies filepath to clipboard by pressing yf
+" nnoremap <silent> yf :let @+=expand('%:p')<CR>
+" copies pwd to clipboard: command yd
+" nnoremap <silent> yd :let @+=expand('%:p:h')<CR>
+
+" Spell languages
+set spelllang=en,c
+set spellsuggest=best,9
 
 " Search
 set noincsearch
