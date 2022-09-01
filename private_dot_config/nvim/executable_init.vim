@@ -79,6 +79,9 @@ nnoremap <C-n> :NERDTree<CR>
 nnoremap <C-t> :NERDTreeToggle<CR>
 nnoremap <C-f> :NERDTreeFind<CR>
 
+" Markdown Preview
+nnoremap <leader>m :MarkdownPreviewToggle<CR>
+
 " Plugins
 call plug#begin()
 
@@ -105,6 +108,7 @@ Plug 'godlygeek/tabular'
 
 " Markdown
 Plug 'preservim/vim-markdown', { 'for': 'markdown' }
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' }
 
 " Tab management
 " Plug 'vim-ctrlspace/vim-ctrlspace'
@@ -162,6 +166,10 @@ let g:vim_markdown_frontmatter = 1
 let g:vim_markdown_strikethrough = 1
 let g:vim_markdown_math = 1
 let g:vim_markdown_new_list_item_indent = 2
+
+" Preview
+" let g:mkdp_echo_preview_url = 1
+" let g:mkdp_auto_start = 1
 
 " Airline
 let g:airline#extensions#ale#enabled = 1
