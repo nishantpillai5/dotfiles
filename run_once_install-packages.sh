@@ -28,6 +28,11 @@ sudo apt install -y p7zip-full p7zip-rar
 # Auto PlugInstall
 # sudo apt install -y neovim
 
+# LAZYGIT_VERSION=$(curl -s "https://api.github.com/repos/jesseduffield/lazygit/releases/latest" | grep -Po '"tag_name": "v\K[0-35.]+')
+# Download in downloads, delete after
+# curl -Lo lazygit.tar.gz "https://github.com/jesseduffield/lazygit/releases/latest/download/lazygit_${LAZYGIT_VERSION}_Linux_x86_64.tar.gz"
+# sudo tar xf lazygit.tar.gz -C /usr/local/bin lazygit
+
 # Local scripts
 mkdir -p ~/.local/bin
 [ ! -f "~/.local/bin/bat"] && ln -s /usr/bin/batcat ~/.local/bin/bat
