@@ -7,7 +7,7 @@ sudo apt install -y bat tmux fzf git curl ranger tree trash-cli diff-so-fancy ri
 # Install tpm, tmux plugin manager
 sudo apt install -y p7zip-full p7zip-rar
 # if GUI prompt
-# sudo apt install -y i3 scrot feh imagemagick polybar pavucontrol maim
+# sudo apt install -y i3 scrot feh imagemagick polybar pavucontrol maim xdotool xclip
 
 # Prompt install miniconda
 
