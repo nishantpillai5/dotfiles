@@ -7,12 +7,15 @@ set ignorecase
 set termguicolors
 set mouse=a
 set smartcase
-set cc=80 " Column border
+" set cc=80 " Column border
 set wildmode=longest,list " Bash like completion
 set splitright
 set splitbelow
 
 let g:python3_host_prog = '/usr/bin/python3'
+
+" filetype plugin on
+" set omnifunc=syntaxcomplete#Complete
 
 set nocompatible
 set hidden
@@ -86,9 +89,13 @@ nnoremap <leader>t :NERDTreeToggle<CR>
 
 " Markdown Preview
 nnoremap <leader>m :MarkdownPreviewToggle<CR>
+let g:mkdp_auto_close = 0
+let g:mkdp_page_title = '${name}'
 
 " Plugins
 call plug#begin()
+
+
 " Hop
 Plug 'phaazon/hop.nvim'
 
@@ -120,6 +127,7 @@ Plug 'godlygeek/tabular'
 " Markdown
 Plug 'preservim/vim-markdown', { 'for': 'markdown' }
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' }
+Plug 'mmai/vim-markdown-wiki'
 
 " Tab management
 " Plug 'vim-ctrlspace/vim-ctrlspace'
@@ -141,6 +149,15 @@ Plug 'vim-scripts/vim-gitgutter'
 
 " CoC
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
+" Zotero
+Plug 'jalvesaq/zotcite'
+
+" Auto complete
+Plug 'ervandew/supertab'
+
+" Git
+Plug 'sindrets/diffview.nvim'
 
 call plug#end()
 
@@ -210,8 +227,8 @@ nmap <leader>8 <Plug>AirlineSelectTab8
 nmap <leader>9 <Plug>AirlineSelectTab9
 nmap <leader>0 <Plug>AirlineSelectTab0
 
-nmap <leader>j :bnext<CR>
-nmap <leader>k :bprev<CR>
+nmap <leader>k :bnext<CR>
+nmap <leader>j :bprev<CR>
 nmap <leader>l :tabnext<CR>
 nmap <leader>h :tabprev<CR>
 nmap <leader>; :b#<CR>
@@ -394,3 +411,15 @@ require("indent_blankline").setup {
 EOF
 
 nnoremap <leader><space> <cmd>HopChar2<cr>
+
+" Tabularize
+" if exists(":Tabularize")
+" 	nmap <leader>>= :Tabularize /=<CR>
+" 	vmap <leader>>= :Tabularize /=<CR>
+" 	nmap <leader>>: :Tabularize /:\zs<CR>
+" 	vmap <leader>>: :Tabularize /:\zs<CR>
+" endif
+
+" Zotero
+let zotcite_open_in_zotero = 1
+" let zotcite_conceallevel = 2

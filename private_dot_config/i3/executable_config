@@ -217,7 +217,7 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 # Wallpaper
-exec --no-startup-id feh --no-fehbg --bg-fill ~/.config/i3/assets/wall.jpg
+exec --no-startup-id feh --no-fehbg --bg-fill --recursive --randomize ~/.wallpaper/*
 
 # Floating Window pop up automatically
 for_window [window_role="pop-up"] floating enable
@@ -231,8 +231,8 @@ for_window [class="Arandr"] floating enable
 # Output:
 # WM_CLASS(STRING) = "brave-browser", "Brave-browser"
 # WM_CLASS(STRING) = "<instance>", "<class>"
-assign [class="Brave-browser" instance="brave-browser"] → $ws2
-assign [class="Code" instance="code"] → $ws1
+# assign [class="Brave-browser" instance="brave-browser"] → $ws2
+# assign [class="Code" instance="code"] → $ws1
 
 # Conky
 # exec --no-startup-id conky -c ~/path/to/.conkyrc

@@ -23,6 +23,8 @@ sudo apt install -y p7zip-full p7zip-rar
 # nvm use node
 # npm install --global yarn
 
+# Python Juypter PDF export
+# sudo apt-get install pandoc texlive-xetex texlive-fonts-recommended texlive-plain-generic
 
 # Get latest neovim instead
 # Auto PlugInstall
