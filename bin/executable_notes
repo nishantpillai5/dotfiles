@@ -1,0 +1,16 @@
+#!/bin/bash
+
+if [[ -z "$1" ]]; then
+	echo "$(ls -l | awk '{print $9}' | grep ".md$\|.txt$" | awk -F. '{print $1}' | uniq -c)"
+elif [[ $1 =~  .md$|.txt$ ]]; then
+	nvim $1
+elif [[ ${1:$((${#1}-1)):1} == "." ]]; then #if last chr is period
+	IFS=. read -ra string <<< "$1"
+	len=${#string[@]}
+	len=$((len+1))
+	echo "$(ls -l | awk '{print $9}' | grep ".md$\|.txt$" | grep ^$1 | awk -v len="$len" -F. '{print $len}' | uniq -c)"
+else
+	IFS=. read -ra string <<< "$1"
+	len=${#string[@]}
+	echo "$(ls -l | awk '{print $9}' | grep ".md$\|.txt$" | grep ^$1 | awk -v len="$len" -F. '{print $len}' | uniq -c)"
+fi

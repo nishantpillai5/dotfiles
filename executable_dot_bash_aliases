@@ -34,18 +34,6 @@ alias vi='nvim'
 
 # Date
 alias today='date +"%Y.%m.%d"'
-alias yday='date  --date="yesterday" +"%Y.%m.%d"'
-alias njt='`create_today_note`;vi journal.daily.`today`.md'
-alias njy='`create_yday_note`;vi journal.daily.`yday`.md'
-
-function create_today_note (){
-if [ ! -f "journal.daily.`today`.md" ]; then
-	cp templates.journal.daily.md "journal.daily.`today`.md"
-fi
-}
-
-function create_yday_note (){
-if [ ! -f "journal.daily.`yday`.md" ]; then
-	cp templates.journal.daily.md "journal.daily.`yday`.md"
-fi
-}
+alias yday='date --date="yesterday" +"%Y.%m.%d"'
+alias n='notes'
+alias nj='notesjournal'

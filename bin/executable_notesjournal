@@ -1,0 +1,19 @@
+#!/bin/bash
+
+if [[ -z "$1" || $1 = "t" ]]; then
+	minus="-0"
+elif [[ $1 = "y" ]]; then 
+	minus="-1"
+else
+	minus="-$1"
+fi
+
+# TODO: Open by specific date using flag
+d=$(date +"%Y.%m.%d" --date="$minus days")
+file="journal.daily.${d}.md"
+
+if [ ! -f $file ]; then
+	cp templates.journal.daily.md $file
+fi
+
+nvim $file

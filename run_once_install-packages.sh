@@ -3,7 +3,7 @@
 sudo add-apt-repository ppa:aos1/diff-so-fancy
 sudo apt update
 
-sudo apt install -y bat tmux fzf git curl ranger tree trash-cli diff-so-fancy ripgrep
+sudo apt install -y bat tmux fzf git curl ranger tree trash-cli diff-so-fancy ripgrep ncdu
 # Install tpm, tmux plugin manager
 sudo apt install -y p7zip-full p7zip-rar
 # if GUI prompt

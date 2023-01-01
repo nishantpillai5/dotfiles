@@ -1,0 +1,16 @@
+#!/bin/bash
+
+function _notes_trash () {
+  # if [[ -n "$1" ]]; then
+    # COMPREPLY=($(compgen -W "$(ls -l | awk '{print $9}' | awk -F. '{print $1}' | sort -u)" -- "${COMP_WORDS[1]}"))
+    # return
+  # fi
+  if [ "${#COMP_WORDS[@]}" != "2" ]; then
+    return
+  fi
+  # COMPREPLY=($(compgen -W "$(ls -l | awk '{print $9}' | grep ^areas | awk -F. '{print $1}' | sort -u)" -- "${COMP_WORDS[1]}"))
+  COMPREPLY=($(compgen -W "$(ls -l | awk '{print $9}' | awk -F. '{print $1}' | sort -u)" -- "${COMP_WORDS[1]}"))
+};
+# complete -F _notes notes
+
+# https://opensource.com/article/18/3/creating-bash-completion-script
