@@ -232,6 +232,7 @@ nmap <leader>j :bprev<CR>
 nmap <leader>l :tabnext<CR>
 nmap <leader>h :tabprev<CR>
 nmap <leader>; :b#<CR>
+nnoremap <leader><tab> :b#<CR>
 
 " CoC
 " Some servers have issues with backup files, see #649.
