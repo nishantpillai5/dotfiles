@@ -1,0 +1,38 @@
+#!/bin/sh
+
+# Because Git submodule commands cannot operate without a work tree, they must
+# be run from within $HOME (assuming this is the root of your dotfiles)
+# cd "$HOME"
+
+# echo "Init submodules"
+# yadm submodule update --recursive --init
+
+# os_like = cat /etc/os-release and get ID_LIKE
+
+if [ "$os_like" = "arch" ]; then
+
+    # zsh, oh my zsh
+    sudo pacman -S zsh
+    sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
+    # yay
+    sudo pacman -S --needed git base-devel yay
+
+    # nvm
+    git clone https://github.com/lukechilds/zsh-nvm ~/.oh-my-zsh/custom/plugins/zsh-nvm
+    nvm install --lts
+    nvm use --lts
+
+    # nvim
+    sudo pacman -S nvim tree-sitter-cli
+
+    # yazi
+    sudo pacman -S yazi ffmpeg 7zip jq poppler fd ripgrep fzf zoxide resvg imagemagick
+
+    # uv
+    curl -LsSf https://astral.sh/uv/install.sh | sh
+
+    # tools
+    sudo pacman -S nvtop
+
+fi

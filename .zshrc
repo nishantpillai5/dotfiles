@@ -70,7 +70,7 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(git zsh-nvm)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -98,3 +98,6 @@ source $ZSH/oh-my-zsh.sh
 export EDITOR=nvim
 set -o vi
 bindkey 'jk' vi-cmd-mode
+
+# zoxide
+eval "$(zoxide init zsh)"
