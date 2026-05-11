@@ -18,6 +18,10 @@ alias lf='ls -a | grep'
 alias lt='ls -ltr'
 alias la='ls -A'
 
+alias grep='grep --color=auto'
+alias fgrep='fgrep --color=auto'
+alias egrep='egrep --color=auto'
+
 alias p="pushd"
 alias pd="popd"
 

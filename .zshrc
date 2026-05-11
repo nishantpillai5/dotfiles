@@ -90,8 +90,3 @@ source $ZSH/oh-my-zsh.sh
 
 # Compilation flags
 # export ARCHFLAGS="-arch $(uname -m)"
-
-# nvim
-export EDITOR=nvim
-set -o vi
-bindkey 'jk' vi-cmd-mode
