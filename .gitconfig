@@ -1,11 +1,13 @@
 [user]
     # email = XXXXXXX@XXXXXXX.com
     # name = XXXXX XXXXX
+
 [include]
     path = ~/.gitconfig.local
+
 [core]
-	editor = nvim
-	pager = delta
+    editor = nvim
+    pager = delta
     excludesfile = ~/.gitignore_global
 
 [interactive]

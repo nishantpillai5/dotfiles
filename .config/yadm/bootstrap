@@ -25,13 +25,20 @@ install_arch() {
 
     # uv
     curl -LsSf https://astral.sh/uv/install.sh | sh
+    uv python install --default
 
     # tools
     sudo pacman -S nvtop
 
+    # lua
+    sudo pacman -S luajit luarocks
+
     # nvim
     sudo pacman -S nvim tree-sitter-cli
     git clone https://github.com/nishantpillai5/neovim_vscode_config/ ~/.config/nvim
+
+    uv venv ~/.virtualenvs/neovim --python=3.11 --seed
+    ~/.virtualenvs/neovim/bin/python -m pip install -U pynvim
 }
 
 install_mac(){
