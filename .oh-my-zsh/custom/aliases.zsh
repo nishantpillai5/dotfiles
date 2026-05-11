@@ -55,6 +55,7 @@ alias dcu="docker compose up -d"
 alias dcd="docker compose down"
 alias dcs=dcs-fn
 
+# TUI
 alias ld="lazydocker"
 alias lg="lazygit"
 alias ly="yadm enter lazygit"
@@ -82,3 +83,21 @@ alias glg='git lg'
 
 alias gpl='git pull'
 alias gps='git push'
+
+# yadm
+alias y='yadm'
+
+alias ya='yadm add'
+
+alias ys='yadm status'
+
+alias yc='yadm commit'
+alias ycm='yadm commit -m'
+
+alias yd='yadm diff'
+
+alias yl='yadm log'
+alias ylg='yadm lg'
+
+alias ypl='yadm pull'
+alias yps='yadm push'
