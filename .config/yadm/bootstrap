@@ -1,8 +1,8 @@
 #!/bin/sh
 
-os_like=$(grep '^ID_LIKE=' /etc/os-release | cut -d= -f2 | tr -d '"')
+# Functions
 
-if [ "$os_like" = "arch" ]; then
+install_arch() {
 
     # zsh, oh my zsh
     sudo pacman -S zsh
@@ -32,13 +32,32 @@ if [ "$os_like" = "arch" ]; then
     # nvim
     sudo pacman -S nvim tree-sitter-cli
     git clone https://github.com/nishantpillai5/neovim_vscode_config/ ~/.config/nvim
+}
 
-elif [ "$os_like" = "mac" ]; then
+install_mac(){
+    echo "No bootstrap available for mac"
+}
 
-	echo "No bootstrap available for $os_like"
+# Main
 
-else
+os_like="unknown"
 
-	echo "No bootstrap available for $os_like"
-
+if [[ "$OSTYPE" == "darwin"* ]]; then
+    os_like="mac"
+elif [[ "$OSTYPE" == "linux-gnu"* ]]; then
+    if [ -f /etc/os-release ]; then
+        os_like=$(grep '^ID_LIKE=' /etc/os-release | cut -d= -f2 | tr -d '"')
+    fi
 fi
+
+case $os_like in
+    "arch"|"manjaro")
+        install_arch
+        ;;
+    "mac")
+        install_mac
+        ;;
+    *)
+        echo "No bootstrap available for $os_like"
+        ;;
+esac
