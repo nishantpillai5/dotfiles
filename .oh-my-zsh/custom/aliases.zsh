@@ -57,6 +57,7 @@ alias dcs=dcs-fn
 
 alias ld="lazydocker"
 alias lg="lazygit"
+alias ly="yadm enter lazygit"
 
 # Git
 alias g='git'
