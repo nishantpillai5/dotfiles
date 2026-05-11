@@ -1,13 +1,6 @@
 #!/bin/sh
 
-# Because Git submodule commands cannot operate without a work tree, they must
-# be run from within $HOME (assuming this is the root of your dotfiles)
-# cd "$HOME"
-
-# echo "Init submodules"
-# yadm submodule update --recursive --init
-
-# os_like = cat /etc/os-release and get ID_LIKE
+os_like=$(grep '^ID_LIKE=' /etc/os-release | cut -d= -f2 | tr -d '"')
 
 if [ "$os_like" = "arch" ]; then
 
@@ -26,16 +19,26 @@ if [ "$os_like" = "arch" ]; then
     nvm install --lts
     nvm use --lts
 
-    # nvim
-    sudo pacman -S nvim tree-sitter-cli
-
     # yazi
     sudo pacman -S yazi ffmpeg 7zip jq poppler fd ripgrep fzf zoxide resvg imagemagick
+    sudo pacman -S trash-cli
 
     # uv
     curl -LsSf https://astral.sh/uv/install.sh | sh
 
     # tools
     sudo pacman -S nvtop
+
+    # nvim
+    sudo pacman -S nvim tree-sitter-cli
+    git clone https://github.com/nishantpillai5/neovim_vscode_config/ ~/.config/nvim
+
+elif [ "$os_like" = "mac" ]; then
+
+	echo "No bootstrap available for $os_like"
+
+else
+
+	echo "No bootstrap available for $os_like"
 
 fi
