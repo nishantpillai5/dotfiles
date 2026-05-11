@@ -91,13 +91,7 @@ source $ZSH/oh-my-zsh.sh
 # Compilation flags
 # export ARCHFLAGS="-arch $(uname -m)"
 
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-
 # nvim
 export EDITOR=nvim
 set -o vi
 bindkey 'jk' vi-cmd-mode
-
-# zoxide
-eval "$(zoxide init zsh)"

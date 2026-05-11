@@ -1,3 +1,5 @@
+alias forgor='bat ~/.oh-my-zsh/custom/aliases.zsh'
+
 # Directory navigation
 alias c='clear'
 alias cls='clear'
@@ -9,6 +11,7 @@ alias ......='cd ../../../../..'
 alias -- -='cd -'
 
 alias l='ls -CF'
+alias ls='ls --color=always'
 alias ll='ls -alF'
 alias lh='ls -Alh'
 alias lf='ls -a | grep'
@@ -47,6 +50,9 @@ alias dc="docker compose"
 alias dcu="docker compose up -d"
 alias dcd="docker compose down"
 alias dcs=dcs-fn
+
+alias ld="lazydocker"
+alias lg="lazygit"
 
 # Git
 alias g='git'

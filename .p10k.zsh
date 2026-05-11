@@ -36,6 +36,7 @@
     pyenv                   # python environment (https://github.com/pyenv/pyenv)
     virtualenv              # python virtual environment (https://docs.python.org/3/library/venv.html)
     anaconda                # conda environment (https://conda.io/)
+    nvim                    # inside neovim terminal
     vi_mode                 # vi mode (you don't need this if you've enabled prompt_char)
     vcs                     # git status
     # prompt_char           # prompt symbol
@@ -1667,6 +1668,13 @@
   typeset -g POWERLEVEL9K_TIME_VISUAL_IDENTIFIER_EXPANSION=
   # Custom prefix.
   # typeset -g POWERLEVEL9K_TIME_PREFIX='%246Fat '
+
+    # Show an indicator when running inside a Neovim terminal ($NVIM is set to the socket path).
+  function prompt_nvim() {
+    [[ -n $NVIM ]] || return
+    p10k segment -f 2 -b 6 -i '' -t ''
+  }
+  function instant_prompt_nvim() { prompt_nvim }
 
   # Example of a user-defined prompt segment. Function prompt_example will be called on every
   # prompt if `example` prompt segment is added to POWERLEVEL9K_LEFT_PROMPT_ELEMENTS or
