@@ -7,6 +7,7 @@ install_arch() {
     # zsh, oh my zsh
     sudo pacman -S zsh
     sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+    git clone https://github.com/lukechilds/zsh-nvm ~/.oh-my-zsh/custom/plugins/zsh-nvm
 
     # yay
     sudo pacman -S --needed git base-devel yay
