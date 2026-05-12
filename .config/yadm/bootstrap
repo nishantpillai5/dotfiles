@@ -3,6 +3,8 @@
 # Functions
 
 install_arch() {
+    # basic
+    sudo pacman -S git git-extras tmux
 
     # zsh, oh my zsh
     sudo pacman -S zsh
@@ -43,7 +45,10 @@ install_arch() {
 }
 
 install_mac(){
-    echo "No bootstrap available for mac"
+    # Homebrew
+
+    # Basics
+    brew install git-extras
 }
 
 # Main

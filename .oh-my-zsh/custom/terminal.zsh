@@ -7,16 +7,16 @@ MANPATH="$HOMEBREW_PREFIX/opt/coreutils/libexec/gnuman:$MANPATH"
 eval `dircolors ~/.dircolors`
 test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
 
-# nvim like movement
+# Editor
 export EDITOR=nvim
-set -o vi
-
+ 
+# jk as Esc
 jk-to-vi-cmd(){
   zle vi-cmd-mode
 }
 zle -N jk-to-vi-cmd
 bindkey -M viins 'jk' jk-to-vi-cmd
-
+ 
 # If this is an xterm set the title to user@host:dir
 case "$TERM" in
 xterm*|rxvt*)

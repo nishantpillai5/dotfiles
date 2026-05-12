@@ -70,7 +70,12 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git zsh-nvm)
+
+# magic enter
+MAGIC_ENTER_GIT_COMMAND='git status -u .'
+MAGIC_ENTER_OTHER_COMMAND='ls -alF .'
+
+plugins=(vi-mode zoxide history git git-extras zsh-nvm aliases bun magic-enter docker-compose)
 
 source $ZSH/oh-my-zsh.sh
 

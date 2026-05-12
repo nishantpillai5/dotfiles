@@ -44,6 +44,3 @@ case ":$PATH:" in
   *) export PATH="$PNPM_HOME/bin:$PATH" ;;
 esac
 # pnpm end
-
-# zoxide
-eval "$(zoxide init zsh)"
