@@ -15,7 +15,8 @@ install_arch() {
     sudo pacman -S --needed git base-devel yay
 
     # hyprland
-    sudo pacman -S hyprmod hyprshot hyprlock hypridle swaync linux-wallpaperengine-git waypaper
+    sudo pacman -S hyprmod hyprshot hyprlock hypridle swaync hyprpaper
+    # sudo pacman -S linux-wallpaperengine-git waypaper
 
     # opendeck,discord
 
