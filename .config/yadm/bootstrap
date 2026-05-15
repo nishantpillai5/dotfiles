@@ -4,7 +4,7 @@
 
 install_arch() {
     # basic
-    sudo pacman -S git git-extras tmux
+    sudo pacman -S git git-extras tmux git-delta
 
     # zsh, oh my zsh
     sudo pacman -S zsh
@@ -14,14 +14,9 @@ install_arch() {
     # yay
     sudo pacman -S --needed git base-devel yay
 
-    # terminal rice
-    # sudo pacman -S cbonsai lavat unimatrix nyancat
-
     # hyprland
     sudo pacman -S hyprmod hyprshot hyprlock hypridle swaync hyprpaper sherlock
     # sudo pacman -S linux-wallpaperengine-git waypaper
-
-    # opendeck,discord
 
     # nvm
     git clone https://github.com/lukechilds/zsh-nvm ~/.oh-my-zsh/custom/plugins/zsh-nvm
@@ -29,8 +24,7 @@ install_arch() {
     nvm use --lts
 
     # yazi
-    sudo pacman -S yazi ffmpeg 7zip jq poppler fd ripgrep fzf zoxide resvg imagemagick
-    sudo pacman -S trash-cli
+    sudo pacman -S yazi ffmpeg 7zip jq poppler fd ripgrep fzf zoxide resvg imagemagick trash-cli
 
     # uv
     curl -LsSf https://astral.sh/uv/install.sh | sh
@@ -42,10 +36,6 @@ install_arch() {
     # lua
     sudo pacman -S luajit luarocks
 
-    # nvim
-    sudo pacman -S nvim tree-sitter-cli
-    git clone https://github.com/nishantpillai5/neovim_vscode_config/ ~/.config/nvim
-
     # docker
     sudo pacman -S docker docker-compose docker-buildx
     sudo systemctl enable docker.service
@@ -54,8 +44,17 @@ install_arch() {
     # to activate adding user to docker group run
     # newgrp docker
 
+    # nvim
+    sudo pacman -S nvim tree-sitter-cli
+    git clone https://github.com/nishantpillai5/neovim_vscode_config/ ~/.config/nvim
+
     uv venv ~/.virtualenvs/neovim --python=3.11 --seed
     ~/.virtualenvs/neovim/bin/python -m pip install -U pynvim
+
+    # terminal rice
+    # sudo pacman -S cbonsai lavat unimatrix nyancat
+
+    # opendeck, discord
 }
 
 install_mac(){
@@ -63,6 +62,7 @@ install_mac(){
 
     # Basics
     brew install git-extras
+    brew install --cask font-caskaydia-mono-nerd-font
 }
 
 # Main
