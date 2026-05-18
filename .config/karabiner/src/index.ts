@@ -1,7 +1,7 @@
 import { writeToProfile } from "karabiner.ts";
 
-import { backspace } from "./backspace.ts";
-import { homerowMods } from "./homerowMods.ts";
+import { backspace } from "./backspace";
+import { homerowMods } from "./homerowMods";
 
 writeToProfile(
   "default",
