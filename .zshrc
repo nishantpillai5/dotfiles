@@ -75,7 +75,7 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 MAGIC_ENTER_GIT_COMMAND='git status -u .'
 MAGIC_ENTER_OTHER_COMMAND='ls -alF .'
 
-plugins=(vi-mode zoxide history git git-extras zsh-nvm aliases bun magic-enter docker-compose)
+plugins=(vi-mode zoxide history git git-extras zsh-nvm aliases bun magic-enter docker-compose tmux tmuxinator)
 
 source $ZSH/oh-my-zsh.sh
 

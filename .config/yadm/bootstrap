@@ -4,7 +4,7 @@
 
 install_arch() {
     # basic
-    sudo pacman -S git git-extras tmux git-delta
+    sudo pacman -S git git-extras tmux tmuxinator git-delta
 
     # zsh, oh my zsh
     sudo pacman -S zsh
@@ -23,21 +23,20 @@ install_arch() {
     nvm install --lts
     nvm use --lts
 
-    # yazi
-    sudo pacman -S yazi ffmpeg 7zip jq poppler fd ripgrep fzf zoxide resvg imagemagick trash-cli
-
     # uv
     curl -LsSf https://astral.sh/uv/install.sh | sh
     uv python install --default
 
-    # tools
-    sudo pacman -S nvtop
+    # TUIs
+    sudo pacman -S lazygit
+    sudo pacman -S nvtop btop
+    sudo pacman -S yazi ffmpeg 7zip jq poppler fd ripgrep fzf zoxide resvg imagemagick trash-cli
 
     # lua
     sudo pacman -S luajit luarocks
 
     # docker
-    sudo pacman -S docker docker-compose docker-buildx
+    sudo pacman -S docker docker-compose docker-buildx lazydocker
     sudo systemctl enable docker.service
     sudo groupadd docker
     sudo usermod -aG docker $USER
@@ -63,6 +62,15 @@ install_mac(){
     # Basics
     brew install git-extras
     brew install --cask font-caskaydia-mono-nerd-font
+
+    # Tmux
+    brew install tmuxinator tmux
+
+    # TUIs
+    brew install lazygit
+
+    # Docker
+    brew install lazydocker
 }
 
 # Main

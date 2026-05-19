@@ -1,5 +1,5 @@
-# full color
-export TERM=tmux-256color
+# full color (only override when running inside tmux)
+[[ -n "$TMUX" ]] && export TERM=tmux-256color
 
 # dircolors
 PATH="$HOMEBREW_PREFIX/opt/coreutils/libexec/gnubin:$PATH"

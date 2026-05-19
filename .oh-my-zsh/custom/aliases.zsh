@@ -32,10 +32,7 @@ alias mnt="mount | awk -F' ' '{ printf \"%s\t%s\n\",\$1,\$3; }' | column -t | eg
 
 # Terminal
 alias ping='ping -c 5'
-
-# Vim
-# alias vim='nvim'
-# alias vi='nvim'
+alias x='exit'
 
 # Date
 alias today='date +"%Y.%m.%d"'
@@ -56,3 +53,6 @@ alias ylgg='yadm log --graph'
 alias ylg='yadm log --stat'
 alias yl='yadm pull'
 alias yp='yadm push'
+
+# tmux
+alias t='tmux'
