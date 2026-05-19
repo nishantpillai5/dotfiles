@@ -56,3 +56,8 @@ alias yp='yadm push'
 
 # tmux
 alias t='tmux'
+
+# devpod
+alias dp='devpod'
+alias dpup="devpod up . --provider docker --dotfiles https://github.com/nishantpillai5/dotfiles.git --ide none"
+

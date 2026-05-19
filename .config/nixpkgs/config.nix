@@ -13,6 +13,7 @@
                 zsh
                 oh-my-zsh
                 zsh-powerlevel10k
+                yadm
             ];
         };
     };

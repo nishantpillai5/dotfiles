@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 export XDG_CONFIG_HOME="$HOME"/.config
 
 mkdir -p "$XDG_CONFIG_HOME"
@@ -12,3 +14,6 @@ ln -sf "$PWD/.zshrc" "$HOME"/.zshrc
 ln -sf "$PWD/.p10k.zsh" "$HOME"/.p10k.zsh
 
 nix-env -iA nixpkgs.myPackages
+
+yadm submodule update --init --recursive
+nvim --headless "+Lazy! sync" +qa
