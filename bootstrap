@@ -18,4 +18,7 @@ nix-env -iA nixpkgs.myPackages
 
 cd "$PWD" && git submodule update --init --recursive
 
+export PATH="$HOME/.nix-profile/bin:$PATH"
+hash -r
+
 nvim --headless "+Lazy! sync" +qa
