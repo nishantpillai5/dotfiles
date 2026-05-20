@@ -7,11 +7,11 @@ ln -sf "$PWD/.config/nixpkgs" "$XDG_CONFIG_HOME"/nixpkgs
 nix-env -iA nixpkgs.myPackages
 
 mkdir -p "$HOME/.oh-my-zsh/custom/themes"
-ln -sfn "$HOME/.nix-profile/share/zsh-powerlevel10k" "$HOME/.oh-my-zsh/custom/themes/powerlevel10k"
+ln -sfn "$HOME/.nix-profile/share/zsh-powerlevel10k" "$HOME/.config/oh-my-zsh/custom/themes/powerlevel10k"
 
 ln -sf "$PWD/.config/nvim" "$XDG_CONFIG_HOME"/nvim
 ln -sf "$PWD/.config/lazygit" "$XDG_CONFIG_HOME"/lazygit
-ln -sf "$PWD/.oh-my-zsh" "$HOME"/.oh-my-zsh
+ln -sf "$PWD/.config/oh-my-zsh" "$XDG_CONFIG_HOME"/oh-my-zsh
 ln -sf "$PWD/.vimrc" "$HOME"/.vimrc
 ln -sf "$PWD/.zshrc" "$HOME"/.zshrc
 ln -sf "$PWD/.p10k.zsh" "$HOME"/.p10k.zsh
