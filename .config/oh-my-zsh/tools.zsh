@@ -21,9 +21,6 @@ if command -v fastfetch &> /dev/null; then
     fi
 fi
 
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-
 # bun completions
 [ -s "/Users/nishant/.bun/_bun" ] && source "/Users/nishant/.bun/_bun"
 
