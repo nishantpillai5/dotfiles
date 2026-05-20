@@ -16,5 +16,6 @@ ln -sf "$PWD/.p10k.zsh" "$HOME"/.p10k.zsh
 
 nix-env -iA nixpkgs.myPackages
 
-# yadm submodule update --init --recursive
-# nvim --headless "+Lazy! sync" +qa
+cd "$PWD" && git submodule update --init --recursive
+
+nvim --headless "+Lazy! sync" +qa
