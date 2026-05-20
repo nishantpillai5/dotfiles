@@ -18,4 +18,11 @@ cd "$PWD" && git submodule update --init --recursive
 export PATH="$HOME/.nix-profile/bin:$PATH"
 hash -r
 
+PYNVIM_VENV="$HOME/.virtualenvs/neovim"
+if [ ! -x "$PYNVIM_VENV/bin/python" ]; then
+  mkdir -p "$(dirname "$PYNVIM_VENV")"
+  python3 -m venv "$PYNVIM_VENV"
+fi
+"$PYNVIM_VENV/bin/pip" install --upgrade --quiet pip pynvim
+
 nvim --headless "+Lazy! sync" +qa
