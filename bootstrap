@@ -6,8 +6,8 @@ mkdir -p "$XDG_CONFIG_HOME"
 ln -sf "$PWD/.config/nixpkgs" "$XDG_CONFIG_HOME"/nixpkgs
 nix-env -iA nixpkgs.myPackages
 
-mkdir -p "$HOME/.oh-my-zsh/custom/themes"
-ln -sfn "$HOME/.nix-profile/share/zsh-powerlevel10k" "$HOME/.config/oh-my-zsh/custom/themes/powerlevel10k"
+mkdir -p "$XDG_CONFIG_HOME/oh-my-zsh/themes"
+ln -sfn "$HOME/.nix-profile/share/zsh-powerlevel10k" "$XDG_CONFIG_HOME/oh-my-zsh/themes/powerlevel10k"
 
 ln -sf "$PWD/.config/nvim" "$XDG_CONFIG_HOME"/nvim
 ln -sf "$PWD/.config/lazygit" "$XDG_CONFIG_HOME"/lazygit
