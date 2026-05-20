@@ -30,5 +30,9 @@ fi
 
 nvim --headless "+Lazy! sync" +qa
 
-ZSH_BIN="$HOME/.nix-profile/bin/zsh"
-chsh -s "$ZSH_BIN" "$USER"
+cat > "$HOME/.bash_profile" <<'EOF'
+# If interactive and zsh exists, hand off to it.
+if [ -t 1 ] && [ -z "$ZSH_VERSION" ] && command -v zsh >/dev/null; then
+  exec "$(command -v zsh)" -l
+fi
+EOF
