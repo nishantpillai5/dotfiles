@@ -18,6 +18,8 @@
                 luarocks
                 tree-sitter
                 lazygit
+                tmux
+                zoxide
             ];
         };
     };
