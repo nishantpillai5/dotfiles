@@ -60,4 +60,7 @@ alias t='tmux'
 # devpod
 alias dp='devpod'
 alias dpup="devpod up . --provider docker --dotfiles https://github.com/nishantpillai5/dotfiles.git --ide none"
+alias dpin='devpod ssh .'
 
+# activate virtual environment
+alias act="source .venv/bin/activate"

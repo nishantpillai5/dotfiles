@@ -75,7 +75,7 @@ ZSH_CUSTOM="$HOME/.config/oh-my-zsh"
 MAGIC_ENTER_GIT_COMMAND='git status -u .'
 MAGIC_ENTER_OTHER_COMMAND='ls -alF .'
 
-plugins=(vi-mode zoxide history git git-extras aliases bun magic-enter docker-compose tmux tmuxinator)
+plugins=(vi-mode zoxide history git git-extras aliases bun magic-enter docker-compose tmux tmuxinator direnv)
 
 source $ZSH/oh-my-zsh.sh
 

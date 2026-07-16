@@ -4,7 +4,7 @@
 
 install_arch() {
     # basic
-    sudo pacman -S git git-extras tmux tmuxinator git-delta
+    sudo pacman -S git git-extras tmux tmuxinator git-delta direnv
 
     # zsh, oh my zsh
     sudo pacman -S zsh
@@ -60,7 +60,7 @@ install_mac(){
     # Homebrew
 
     # Basics
-    brew install git-extras
+    brew install git-extras direnv
     brew install --cask font-caskaydia-mono-nerd-font
 
     # Tmux

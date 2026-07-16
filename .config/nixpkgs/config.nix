@@ -2,7 +2,7 @@
     packageOverrides = pkgs: with pkgs; {
         myPackages = pkgs.buildEnv {
             name = "my-tools";
-            paths = [    
+            paths = [
                 zsh
                 oh-my-zsh
                 zsh-powerlevel10k
@@ -20,6 +20,7 @@
                 lazygit
                 tmux
                 zoxide
+                direnv
             ];
         };
     };

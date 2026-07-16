@@ -1,7 +1,7 @@
 # Dirs
 export DIR_WORK=~/work
 export DIR_NVIM=~/.config/nvim
-export DIR_ZSH=~/.oh-my-zsh/custom
+export DIR_ZSH=~/.config/oh-my-zsh
 export DIR_NOTES=~/notes
 
 # Aliases
