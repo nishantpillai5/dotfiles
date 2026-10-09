@@ -1,0 +1,12 @@
+nerdfont: true
+status_format: false
+window_prefix: ""
+status_icons:
+  working: "󰚩"
+  waiting: "󰍡"
+  done: "󰄬"
+panes:
+  - command: CLAUDE_WM=1 nvim
+  - command: ~/.config/tmux/scripts/wm-claude.sh page
+    split: horizontal
+    zoom: true
