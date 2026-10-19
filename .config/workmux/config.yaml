@@ -1,3 +1,8 @@
+# Agent pane runs this wrapper, which starts Claude in a hidden tmux session
+# (wmc_<repo>_<worktree>) that this pane attaches to. Keep the path absolute:
+# workmux single-quotes the first word, so ~ never expands and the pane would
+# silently drop to a shell. The pane below must use <agent>, or -P is refused.
+agent: ~/.config/tmux/scripts/wm-claude.sh page
 nerdfont: true
 status_format: false
 window_prefix: ""
@@ -7,6 +12,13 @@ status_icons:
   done: "󰄬"
 panes:
   - command: CLAUDE_WM=1 nvim
-  - command: ~/.config/tmux/scripts/wm-claude.sh page
+  - command: <agent>
     split: horizontal
     zoom: true
+dashboard:
+  sort_mode: natural
+sidebar:
+  position: top
+  width: 3%
+  layout: compact
+  enter_action: focus # "focus" (default) or "select"

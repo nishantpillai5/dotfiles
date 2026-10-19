@@ -19,7 +19,14 @@ else
   page=$(tmux list-panes -t "$TMUX_PANE" -F '#{pane_id} #{@claude}' | awk '$2 == 1 { print $1 }')
 fi
 
-if ! tmux has-session -t "=$name" 2>/dev/null; then
+if tmux has-session -t "=$name" 2>/dev/null; then
+  # Attaching would silently drop a new prompt: fail where it can be seen.
+  if [ "$mode" = page ] && [ $# -gt 0 ]; then
+    echo "wm-claude: session $name already runs Claude; not passing: $*" >&2
+    echo "wm-claude: close its windows or run: tmux kill-session -t =$name" >&2
+    exit 1
+  fi
+else
   # Claude checks a worktree's trust against its main repo, so trust that
   # once; only from a linked worktree, never for an arbitrary directory.
   cfg=$HOME/.claude.json
