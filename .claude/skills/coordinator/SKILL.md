@@ -78,9 +78,9 @@ each worker can be either. Consequences:
   stay sandboxed and fail in misleading ways (`.git/config` lock, Docker socket
   denied). pi has no sandbox, so this doesn't apply there.
 - **A launch can fail silently.** If an agent never reaches `working`, check
-  that the workmux config's agent profiles use the absolute wrapper path
-  (workmux quotes it, so `~` doesn't expand), then ask the user to look at the
-  window.
+  that `command -v wm-agent` finds the `~/.local/bin/wm-agent` symlink (the
+  workmux profiles run it by name, since workmux quotes the command and `~`
+  doesn't expand), then ask the user to look at the window.
 
 ## Command Reference
 
