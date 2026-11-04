@@ -46,7 +46,7 @@ esac
 # Without an argument the agent is $WM_AGENT, else Omarchy's default agent, else claude.
 aa() {
   local agent start
-  agent=${1:-$(~/.config/tmux/scripts/wm-agent.sh default)} || return 1
+  agent=${1:-$(wm-agent default)} || return 1
   case $agent in
     claude) start="claude /coordinator" ;;
     pi) start="pi /skill:coordinator" ;;

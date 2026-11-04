@@ -32,14 +32,14 @@ monitor them, send instructions, and trigger merges.
 ## Local Setup (overrides the generic commands below)
 
 On this machine, workmux launches agents through
-`~/.config/tmux/scripts/wm-agent.sh page`. That script runs the agent in a
+`wm-agent page` (`~/.local/bin/wm-agent`). That script runs the agent in a
 hidden tmux session named `wmc_<repo>_<worktree>`; the workmux window only
 attaches to it. This skill runs in Claude Code or pi, so the coordinator and
 each worker can be either. Consequences:
 
 - **Pick each worker's agent, and record it.** A plain `workmux add` runs the
   default agent: `$WM_AGENT`, else Omarchy's default agent, else Claude.
-  `~/.config/tmux/scripts/wm-agent.sh default` prints which one that is. When the
+  `wm-agent default` prints which one that is. When the
   user names an agent, add `-a claude-wm` or `-a pi-wm`. Keep the agent next
   to each tracked handle: reports, transcripts and skill commands differ. A
   running worker's agent is also on its session:
@@ -78,9 +78,9 @@ each worker can be either. Consequences:
   stay sandboxed and fail in misleading ways (`.git/config` lock, Docker socket
   denied). pi has no sandbox, so this doesn't apply there.
 - **A launch can fail silently.** If an agent never reaches `working`, check
-  that `command -v wm-agent` finds the `~/.local/bin/wm-agent` symlink (the
-  workmux profiles run it by name, since workmux quotes the command and `~`
-  doesn't expand), then ask the user to look at the window.
+  that `command -v wm-agent` finds `~/.local/bin/wm-agent` (the workmux
+  profiles run it by name, since workmux quotes the command and `~` doesn't
+  expand), then ask the user to look at the window.
 
 ## Command Reference
 

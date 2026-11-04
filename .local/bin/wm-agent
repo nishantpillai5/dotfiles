@@ -1,9 +1,9 @@
 #!/bin/sh
 # One agent per worktree, in a hidden session that several clients attach to:
 # the workmux window's agent page and nvim's Claude split.
-#   wm-agent.sh page [agent args]    pane command in workmux windows
-#   wm-agent.sh attach [agent args]  nvim's claudecode terminal_cmd
-#   wm-agent.sh default              print the agent the other modes start
+#   wm-agent page [agent args]    pane command in workmux windows
+#   wm-agent attach [agent args]  nvim's claudecode terminal_cmd
+#   wm-agent default              print the agent the other modes start
 # The agent, claude or pi, is $WM_AGENT, else Omarchy's default agent when it
 # is one of those, else claude. workmux's claude-wm and pi-wm profiles set
 # WM_AGENT, so `workmux add -a pi-wm` gets pi in the same layout.
@@ -37,7 +37,7 @@ default)
   ;;
 page | attach) ;;
 *)
-  echo "usage: wm-agent.sh page|attach [agent args] | wm-agent.sh default" >&2
+  echo "usage: wm-agent page|attach [agent args] | wm-agent default" >&2
   exit 1
   ;;
 esac
@@ -49,10 +49,10 @@ main=$(dirname "$(git -C "$top" rev-parse --path-format=absolute --git-common-di
 name=$(printf 'wmc_%s_%s' "$(basename "$main")" "$(basename "$top")" | tr -c 'A-Za-z0-9_-' '_')
 
 if [ "$mode" = page ]; then
-  tmux set -p -t "$TMUX_PANE" @claude 1
+  tmux set -p -t "$TMUX_PANE" @agent 1
   page=$TMUX_PANE
 else
-  page=$(tmux list-panes -t "$TMUX_PANE" -F '#{pane_id} #{@claude}' | awk '$2 == 1 { print $1 }')
+  page=$(tmux list-panes -t "$TMUX_PANE" -F '#{pane_id} #{@agent}' | awk '$2 == 1 { print $1 }')
 fi
 
 if tmux has-session -t "=$name" 2>/dev/null; then
