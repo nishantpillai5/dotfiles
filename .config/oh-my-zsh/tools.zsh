@@ -41,3 +41,16 @@ case ":$PATH:" in
   *) export PATH="$PNPM_HOME/bin:$PATH" ;;
 esac
 # pnpm end
+
+# aa: workmux dashboard on the left, a coordinator Claude session on the right.
+aa() {
+  if [[ -z $TMUX ]]; then
+    echo "aa: run inside tmux" >&2
+    return 1
+  fi
+  command tmux rename-window -t "$TMUX_PANE" coordinator
+  local right
+  right=$(command tmux split-window -h -t "$TMUX_PANE" -c "$PWD" -P -F '#{pane_id}')
+  command tmux send-keys -t "$right" "claude /coordinator" Enter
+  workmux dashboard
+}

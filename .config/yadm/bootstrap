@@ -67,10 +67,13 @@ install_mac(){
     brew install tmuxinator tmux
 
     # TUIs
-    brew install lazygit
+    brew install lazygit lazydocker
 
     # Docker
-    brew install lazydocker
+    brew install --cask docker-desktop
+    
+    # Neovim
+    brew install neovim tree-sitter-cli
 }
 
 # Main
