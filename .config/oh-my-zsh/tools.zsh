@@ -7,12 +7,8 @@ function f() {
 	command rm -f -- "$tmp"
 }
 
-# nvm
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
-. "$HOME/.local/bin/env"
+# uv env
+[[ -f "$HOME/.local/bin/env" ]] && source "$HOME/.local/bin/env"
 
 # fastfetch in new tmux window
 if command -v fastfetch &> /dev/null; then 
@@ -21,26 +17,10 @@ if command -v fastfetch &> /dev/null; then
     fi
 fi
 
-# bun completions
-[ -s "/Users/nishant/.bun/_bun" ] && source "/Users/nishant/.bun/_bun"
-
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
-
-# opencode
-export PATH=/Users/nishant/.opencode/bin:$PATH
-
-# Antigravity
-export PATH="/Users/nishant/.antigravity/antigravity/bin:$PATH"
-
-# pnpm
-export PNPM_HOME="/Users/nishant/Library/pnpm"
-case ":$PATH:" in
-  *":$PNPM_HOME/bin:"*) ;;
-  *) export PATH="$PNPM_HOME/bin:$PATH" ;;
-esac
-# pnpm end
+[[ -s "$BUN_INSTALL/_bun" ]] && source "$BUN_INSTALL/_bun"
 
 # aa [claude|pi]: workmux dashboard on the left, a coordinator session on the right.
 # Without an argument the agent is $WM_AGENT, else Omarchy's default agent, else claude.

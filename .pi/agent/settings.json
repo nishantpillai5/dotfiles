@@ -1,0 +1,13 @@
+{
+  "tuiMode": "regular",
+  "enableInstallTelemetry": false,
+  "packages": [
+    "npm:pi-web-search",
+    "npm:pi-memory",
+    "npm:pi-context-view",
+    "npm:pi-tokenburn",
+    "npm:@narumitw/pi-usage",
+    "npm:@gotgenes/pi-permission-system",
+    "npm:pi-messenger@0.15.2"
+  ]
+}

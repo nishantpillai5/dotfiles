@@ -1,5 +1,5 @@
 # If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
+export PATH="$HOME/.local/bin:$PATH"
 
 # Path to your Oh My Zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
@@ -75,7 +75,10 @@ ZSH_CUSTOM="$HOME/.config/oh-my-zsh"
 MAGIC_ENTER_GIT_COMMAND='git status -u .'
 MAGIC_ENTER_OTHER_COMMAND='ls -alF .'
 
-plugins=(vi-mode zoxide history git git-extras aliases bun magic-enter docker-compose tmux tmuxinator direnv)
+export NVM_DIR="$HOME/.nvm"
+zstyle ':omz:plugins:nvm' lazy yes
+
+plugins=(vi-mode nvm zoxide history git git-extras aliases bun magic-enter docker-compose tmux tmuxinator direnv)
 
 source $ZSH/oh-my-zsh.sh
 
